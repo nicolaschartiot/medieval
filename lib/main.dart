@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_indicator/page_indicator.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,11 +30,37 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('Medieval'),
-        ),
         body: Center(
-          child: Text('You have pushed the button times.'),
+          child: PageIndicatorContainer(
+            length: 5,
+            size: 7,
+            indicatorColor: Colors.white,
+            indicatorSelectorColor: Colors.grey,
+            padding: EdgeInsets.only(
+              bottom: 50.0,
+              left: 6.0
+            ),
+            pageView: PageView(
+              controller: new PageController(),
+              children: <Widget>[
+                Center(
+                  child: Text("page 1"),
+                ),
+                Center(
+                  child: Text("page 2"),
+                ),
+                Center(
+                  child: Text("page 3"),
+                ),
+                Center(
+                  child: Text("page 4"),
+                ),
+                Center(
+                  child: Text("page 5"),
+                ),
+              ],
+            ),
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
           shape: CircularNotchedRectangle(),
@@ -47,7 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 70,
           child: FloatingActionButton(
             tooltip: 'Play / Pause',
-            child: (_playPause ? Icon(Icons.play_arrow, size: 30,) : Icon(Icons.pause, size: 30)),
+            child: (_playPause
+                ? Icon(
+                    Icons.play_arrow,
+                    size: 30,
+                  )
+                : Icon(Icons.pause, size: 30)),
             onPressed: () => {
                   setState(() {
                     _playPause = !_playPause;
