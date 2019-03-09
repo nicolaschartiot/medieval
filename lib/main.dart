@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 70,
           child: FloatingActionButton(
             tooltip: 'Play / Pause',
-            child: (_playPause ? Icon(Icons.play_arrow) : Icon(Icons.pause)),
+            child: (_playPause ? Icon(Icons.play_arrow, size: 30,) : Icon(Icons.pause, size: 30)),
             onPressed: () => {
                   setState(() {
                     _playPause = !_playPause;
