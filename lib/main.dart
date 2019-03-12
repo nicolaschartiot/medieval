@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
+import 'screens/music_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,42 +37,38 @@ class _HomeScreenState extends State<HomeScreen> {
             size: 7,
             indicatorColor: Colors.white,
             indicatorSelectorColor: Colors.grey,
-            padding: EdgeInsets.only(
-              bottom: 50.0,
-              left: 6.0
-            ),
+            padding: EdgeInsets.only(bottom: 20.0, left: 6.0),
             pageView: PageView(
               controller: new PageController(),
               children: <Widget>[
-                Center(
-                  child: Text("page 1"),
+                MusicScreen(
+                  color: Colors.green,
+                  title: "Town",
                 ),
-                Center(
-                  child: Text("page 2"),
+                MusicScreen(
+                  color: Colors.grey,
+                  title: "Dungeon",
                 ),
-                Center(
-                  child: Text("page 3"),
+                MusicScreen(
+                  color: Colors.lightBlue,
+                  title: "Ocean",
                 ),
-                Center(
-                  child: Text("page 4"),
+                MusicScreen(
+                  color: Colors.yellow[400],
+                  title: "Beach",
                 ),
-                Center(
-                  child: Text("page 5"),
+                MusicScreen(
+                  color: Colors.amber,
+                  title: "Combat",
                 ),
               ],
             ),
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
-          notchMargin: 5.0,
-          child: Container(
-            height: 50.0,
-          ),
-        ),
         floatingActionButton: Container(
           width: 70,
           height: 70,
+          margin: EdgeInsets.only(bottom: 50.0),
           child: FloatingActionButton(
             tooltip: 'Play / Pause',
             child: (_playPause
